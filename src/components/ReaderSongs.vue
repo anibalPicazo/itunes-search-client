@@ -12,7 +12,7 @@
           v-model="search"
         />
         <button
-          class="btn btn-primary"
+          class="search-button"
           @click="filterAlbum"
         >
           Search
@@ -51,14 +51,12 @@ export default {
   methods: {
     async readSongs() {
       const res = await axios.get(`http://localhost:3000/albums/`);
-      console.log("res", res);
       this.albums = res.data;
     },
     async filterAlbum() {
       const res = await axios.get(
         `http://localhost:3000/albums/${this.search}`
       );
-      console.log("res", res);
       this.albums = res.data;
     },
   },
